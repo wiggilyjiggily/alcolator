@@ -27,6 +27,11 @@
     self.view.backgroundColor = [UIColor colorWithRed:0.992 green:0.992 blue:0.588 alpha:1];
 }
 
+- (void)sliderValueDidChange:(UISlider *)sender {
+    [super sliderValueDidChange:sender];
+    self.title = [NSString stringWithFormat:@"whiskey (%d glasses)", (int) sender.value];
+}
+
 - (void)buttonPressed:(UIButton *)sender;
 {
     [self.beerPercentTextField resignFirstResponder];
