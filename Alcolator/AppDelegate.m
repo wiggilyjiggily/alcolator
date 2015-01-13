@@ -24,10 +24,15 @@
     WhiskeyViewController *whiskeyVC = [[WhiskeyViewController alloc] init];
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
     tabBarVC.viewControllers = @[wineVC, whiskeyVC];
+    tabBarVC.delegate = self;
     
     self.window.rootViewController = tabBarVC;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"New view controller selected: %@", viewController.title);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
